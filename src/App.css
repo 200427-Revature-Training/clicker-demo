@@ -2,10 +2,89 @@
   text-align: center;
 }
 
+h1 {
+  font-size: 4rem;
+  font-style: italic;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
+button {
+  font-size: 3rem;
+}
+
+span {
+  transition: color 500ms ease-in-out;
+}
+
+
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+
+.indigo {
+  color: indigo;
+}
+
+.violet {
+  color: violet;
+}
+
+#count {
+  font-size: 5rem;
+  margin: 35px;
+  height: 200px;
+  transition: color 500ms linear;
+  transition: font-size 100ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+#count.pop {
+  animation-name: popout;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;  
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-play-state: running;
+}
+
+
+@keyframes popout {
+  0% {
+    font-size: 5rem;
+  }
+
+  10% {
+    font-size: 7rem;
+  }
+
+  100% {
+    font-size: 5rem;
+  }
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 const App: React.FC = () => {
@@ -8,12 +7,15 @@ const App: React.FC = () => {
   const [offset, setOffset] = useState(0);
   const [unlocks, setUnlocks] = useState(0);
   const [lastIncrement, setLastIncrement] = (useState(0));
+  
   const processClick = (i: number) => {
     setCount(count + i);
   }
 
   const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 
+  // Everytime the offset changes, each character shifts one index in the color array
+  // above
   const getHeaderColor = (index: number, min: number) => {
     if (count < min) return "";
     const colorIndex = ((offset + index) % unlocks);
@@ -21,28 +23,34 @@ const App: React.FC = () => {
   }
 
   const getCounterStyles = () => {
+    
+    // Unlocking new colors
     if (count > 50 * (unlocks + 1)) {
       if (unlocks < 7) {
         setUnlocks(unlocks + 1);
       }
     }
 
+    // Increments offset for swapping colors in the title bar
+    // Increment offset once every 10 clicks
     if (!(count % 10) && lastIncrement != count) {
       setLastIncrement(count);
       setOffset(offset+1);
     }
     let colorClass = '';
     
+    // Calculate current color index given the count
     if (count > 50) {
       colorClass = colors[Math.min(Math.floor((count-50) / 50), colors.length-1)];
     }
 
+    // Some controls for adding the pop class to animate the text
     let pop = ''
     if (count > 50 && count % 50 < 25) {
       pop = 'pop'
     }
 
-
+    // Output might look: 'purple ', red pop', 'blue '
     return `${colorClass} ${pop}`
   }
 

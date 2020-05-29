@@ -12,9 +12,9 @@ h1 {
   pointer-events: none;
 }
 
-button {
-  font-size: 3rem;
-}
+  button {
+    font-size: 3rem;
+  }
 
 span {
   transition: color 500ms ease-in-out;
